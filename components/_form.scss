@@ -1,0 +1,101 @@
+.form {
+
+    &__group:not(:last-child) {
+        margin-bottom: .5rem;
+
+    }
+
+    &__input {
+        font-size: 1.4rem;
+        font-family: inherit;
+        padding: 1.4rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+        border-bottom: solid 3px transparent; //bcz we fix this as initial state so that our labels doesnt, move bcz of extra pixels
+        width: 90%;
+        display: block;
+        transition: all .2s;
+
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: solid 4px $color-primary;
+        }
+
+        &:focus:invalid {
+            border-bottom: solid 4px $color-secondary-dark;
+
+        }
+
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        display: block;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        transition: all .3s;
+    }
+
+    &__input:placeholder-shown+&__label {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+
+    &__radio-group {
+        width: 43%;
+        display: inline-table;
+
+    }
+
+    &__radio-input {
+     display: none;
+    }
+
+    &__label-radio {
+        font-size: $default-font-size;
+        position: relative;
+        cursor: pointer;
+        padding-left: 3.5rem;
+    }
+
+    &__radio-button {
+        height: 3rem;
+        width: 3rem;
+        border: solid 5px $color-primary-light;
+        border-radius: 50%;
+        position: absolute;
+        display: inline-block;
+        left: 0;
+        top: -.5rem;
+
+
+        &::after {
+            content: ""; //bczz we also want small green circle inside the custom radio button
+            display: block;
+            height: 1.2rem;
+            width: 1.2rem;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary-light;
+            opacity: 0;
+            transition: opacity .2s;
+
+        }
+    }
+
+    &__radio-input:checked~&__label-radio &__radio-button::after {
+           opacity: 1;
+    }
+}

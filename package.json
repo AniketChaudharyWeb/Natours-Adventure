@@ -1,0 +1,11 @@
+{
+  "name": "Natours",
+  "version": "1.0.0",
+  "description": "Landing Page For Natours",
+  "main": "index.html",
+  "author": "Aniket",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.11.0"
+  }
+}
